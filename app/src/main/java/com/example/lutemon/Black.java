@@ -1,4 +1,4 @@
 package com.example.lutemon;
 
-public class Black {
+public class Black extends Lutemon{
 }
