@@ -3,19 +3,25 @@ package com.example.lutemon.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.lutemon.MainActivity;
+import com.example.lutemon.LutemonListAdapter;
 import com.example.lutemon.R;
-import com.example.lutemon.TabPagerAdapter;
+import com.example.lutemon.Storage;
+
 public class FragmentHome extends Fragment {
+
+    private Storage storage;
+
+    private RecyclerView recyclerView;
+
+    public static LutemonListAdapter adapter;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,14 @@ public class FragmentHome extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        storage = Storage.getInstance();
+
+        recyclerView = view.findViewById(R.id.rvListItems);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
+        recyclerView.setAdapter(adapter);
         return view;
     }
 }

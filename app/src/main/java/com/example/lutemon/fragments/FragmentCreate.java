@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.lutemon.Black;
 import com.example.lutemon.Green;
@@ -59,8 +60,12 @@ public class FragmentCreate extends Fragment {
                     case R.id.rbBlack:
                         l = new Black(stringName);
                         break;
+                    default:
+                        Toast.makeText(getContext(), "Valitse väri", Toast.LENGTH_LONG).show();
                 }
                 Storage.getInstance().addLutemon(l);
+                FragmentHome.adapter.notifyDataSetChanged();
+
             }
         });
 
