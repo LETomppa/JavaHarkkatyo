@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.lutemon.Black;
 import com.example.lutemon.Green;
 import com.example.lutemon.Lutemon;
+import com.example.lutemon.LutemonListAdapter;
 import com.example.lutemon.Orange;
 import com.example.lutemon.Pink;
 import com.example.lutemon.R;
@@ -24,6 +25,7 @@ import com.example.lutemon.White;
 public class FragmentCreate extends Fragment {
 
     private EditText name;
+    private Storage storage;
     private String stringName;
     private Lutemon l;
 
@@ -39,6 +41,8 @@ public class FragmentCreate extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create, container, false);
         name = view.findViewById(R.id.txtName);
         Button addButton = view.findViewById(R.id.btnCreate);
+        storage = Storage.getInstance();
+        FragmentHome.adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
