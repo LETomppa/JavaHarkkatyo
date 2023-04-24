@@ -21,6 +21,8 @@ import com.example.lutemon.Pink;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
 import com.example.lutemon.White;
+import com.example.lutemon.LutemonListAdapter;
+
 
 public class FragmentCreate extends Fragment {
 
@@ -28,6 +30,9 @@ public class FragmentCreate extends Fragment {
     private Storage storage;
     private String stringName;
     private Lutemon l;
+
+    private Storage storage;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

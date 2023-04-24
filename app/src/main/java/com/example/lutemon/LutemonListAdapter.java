@@ -44,6 +44,15 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
         holder.imageEXP.setImageResource(R.drawable.image_xp);
         holder.imageDefence.setImageResource(R.drawable.image_defence);
         holder.imageAttack.setImageResource(R.drawable.image_attack);
+
+        holder.imageTrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = holder.getAdapterPosition();
+                Storage.getInstance().removeLutemon(lutemons.get(pos).getId());
+                notifyItemRemoved(pos);
+            }
+        });
     }
 
 

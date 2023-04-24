@@ -20,4 +20,16 @@ public class Storage {
 
     public ArrayList<Lutemon> getLutemons() {return lutemons; }
 
+    public void removeLutemon(int id) {
+        int i = 0;
+        for (Lutemon l : lutemons){
+            if (l.getId() == (id)) {
+                break;
+            }
+            i++;
+        }
+        lutemons.remove(i);
+    }
+
+
 }
