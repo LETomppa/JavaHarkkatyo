@@ -39,7 +39,6 @@ public class FragmentHome extends Fragment {
         recyclerView = view.findViewById(R.id.rvListItems);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
         recyclerView.setAdapter(adapter);
         return view;
     }

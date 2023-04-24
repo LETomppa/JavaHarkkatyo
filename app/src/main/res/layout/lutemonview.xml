@@ -38,7 +38,7 @@
             app:srcCompat="@android:drawable/btn_star" />
 
         <ImageView
-            android:id="@+id/imageDefence"
+            android:id="@+id/imageAttack"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginEnd="44dp"
@@ -47,12 +47,12 @@
             app:srcCompat="@android:drawable/checkbox_on_background" />
 
         <ImageView
-            android:id="@+id/imageAttack"
+            android:id="@+id/imageDefence"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginEnd="44dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageDefence"
+            app:layout_constraintTop_toBottomOf="@+id/imageAttack"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <TextView
@@ -119,17 +119,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textDEFENCE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="2dp"
-            android:text="def"
-            android:textColor="#000000"
-            app:layout_constraintEnd_toStartOf="@+id/imageDefence"
-            app:layout_constraintTop_toBottomOf="@+id/textMAXHEALTH" />
-
-        <TextView
             android:id="@+id/textATTACK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -138,7 +127,18 @@
             android:text="dmg"
             android:textColor="#000000"
             app:layout_constraintEnd_toStartOf="@+id/imageAttack"
-            app:layout_constraintTop_toBottomOf="@+id/textDEFENCE" />
+            app:layout_constraintTop_toBottomOf="@+id/textMAXHEALTH" />
+
+        <TextView
+            android:id="@+id/textDEFENCE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="2dp"
+            android:text="def"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toStartOf="@+id/imageDefence"
+            app:layout_constraintTop_toBottomOf="@+id/textATTACK" />
 
         <ImageView
             android:id="@+id/imageTrash"
