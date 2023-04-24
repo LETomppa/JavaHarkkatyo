@@ -23,6 +23,7 @@
             android:id="@+id/imageHealth"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginEnd="44dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/btn_dialog" />
@@ -40,6 +41,7 @@
             android:id="@+id/imageDefence"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginEnd="44dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageHealth"
             app:srcCompat="@android:drawable/checkbox_on_background" />
@@ -48,6 +50,7 @@
             android:id="@+id/imageAttack"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginEnd="44dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageDefence"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -136,6 +139,14 @@
             android:textColor="#000000"
             app:layout_constraintEnd_toStartOf="@+id/imageAttack"
             app:layout_constraintTop_toBottomOf="@+id/textDEFENCE" />
+
+        <ImageView
+            android:id="@+id/imageTrash"
+            android:layout_width="41dp"
+            android:layout_height="73dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_delete_forever_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.lutemon.Black;
 import com.example.lutemon.Green;
 import com.example.lutemon.Lutemon;
+import com.example.lutemon.LutemonListAdapter;
 import com.example.lutemon.Orange;
 import com.example.lutemon.Pink;
 import com.example.lutemon.R;

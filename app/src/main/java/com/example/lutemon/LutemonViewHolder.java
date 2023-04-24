@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class LutemonViewHolder extends RecyclerView.ViewHolder {
 
     TextView textName, textColor, textLVL, textMAXHEALTH, textLine, textHEALTH, textDEFENCE, textATTACK;
-    ImageView imageHealth, imageEXP, imageDefence, imageAttack, imageLutemon;
+    ImageView imageHealth, imageEXP, imageDefence, imageAttack, imageLutemon, imageTrash;
 
 
 
@@ -32,5 +32,6 @@ public class LutemonViewHolder extends RecyclerView.ViewHolder {
         imageEXP = itemView.findViewById(R.id.imageEXP);
         imageDefence = itemView.findViewById(R.id.imageDefence);
         imageAttack = itemView.findViewById(R.id.imageAttack);
+        imageTrash = itemView.findViewById(R.id.imageTrash);
     }
 }
