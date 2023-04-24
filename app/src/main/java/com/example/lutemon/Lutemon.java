@@ -9,9 +9,10 @@ public class Lutemon {
     protected int health;
     protected int maxHealth;
     protected int id;
+    protected int image;
     private int idCounter;
 
-    public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth) {
+    public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth, int image) {
         this.name = name;
         this.color = color;
         this.attack = attack;
@@ -20,6 +21,7 @@ public class Lutemon {
         this.health = health;
         this.maxHealth = maxHealth;
         this.id = idCounter;
+        this.image = image;
         idCounter++;
     }
 }
