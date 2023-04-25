@@ -101,8 +101,6 @@ public class FragmentCreate extends Fragment {
                 Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
             }
         });
-
-
         return view;
     }
 }

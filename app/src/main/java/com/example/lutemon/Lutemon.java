@@ -12,7 +12,7 @@ public class Lutemon implements Serializable {
     protected int maxHealth;
     protected int id;
     protected int image;
-    private static int idCounter = 0;
+    private static int idCounter;
 
     public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth, int image) {
         this.name = name;
@@ -69,6 +69,9 @@ public class Lutemon implements Serializable {
         this.defence = defence;
     }
 
+    public void setIdCounter(int number) {
+        idCounter = number;
+    }
     @Override
     public String toString() {
         return String.valueOf(name);

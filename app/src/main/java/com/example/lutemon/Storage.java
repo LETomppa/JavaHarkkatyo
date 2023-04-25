@@ -67,6 +67,12 @@ public class Storage {
             System.out.println("Lutemonien lukeminen ei onnistunut");
             e.printStackTrace();
         }
+        int number = 1;
+        for(Lutemon lutemon: lutemons) {
+            lutemon.setIdCounter(number);
+            number++;
+        }
 
     }
+
 }
