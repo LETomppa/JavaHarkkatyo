@@ -42,4 +42,5 @@ public class FragmentHome extends Fragment {
         recyclerView.setAdapter(adapter);
         return view;
     }
+
 }

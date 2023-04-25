@@ -50,22 +50,6 @@ public class FragmentCreate extends Fragment {
         storage = Storage.getInstance();
         FragmentHome.adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                storage.saveLutemons(getContext());
-                Toast.makeText(getContext(), "Lutemonien tallennus onnistui!", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        btnLoad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                storage.loadLutemons(getContext());
-                FragmentHome.adapter.notifyDataSetChanged();
-                Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
-            }
-        });
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +84,24 @@ public class FragmentCreate extends Fragment {
                 }
             }
         });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Storage.getInstance().saveLutemons(getContext());
+                Toast.makeText(getContext(), "Lutemonien tallennus onnistui!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Storage.getInstance().loadLutemons(getContext());
+                FragmentHome.adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         return view;
     }
