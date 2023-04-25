@@ -1,9 +1,13 @@
 package com.example.lutemon;
 
+
+import com.example.lutemon.fragments.FragmentTrain;
+
 import java.util.ArrayList;
 
 public class Storage {
     protected String name;
+    private FragmentTrain fragmentTrain;
     ArrayList<Lutemon> lutemons = new ArrayList<>();
     private static Storage storage = null;
 
@@ -29,7 +33,6 @@ public class Storage {
             i++;
         }
         lutemons.remove(i);
+
     }
-
-
 }
