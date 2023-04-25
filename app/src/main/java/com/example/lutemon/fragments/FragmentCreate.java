@@ -44,10 +44,29 @@ public class FragmentCreate extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create, container, false);
         name = view.findViewById(R.id.txtName);
-        Button addButton = view.findViewById(R.id.btnCreate);
+        Button btnAdd = view.findViewById(R.id.btnCreate);
+        Button btnSave = view.findViewById(R.id.btnSave);
+        Button btnLoad = view.findViewById(R.id.btnLoad);
         storage = Storage.getInstance();
         FragmentHome.adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
-        addButton.setOnClickListener(new View.OnClickListener() {
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                storage.saveLutemons(getContext());
+                Toast.makeText(getContext(), "Lutemonien tallennus onnistui!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                storage.loadLutemons(getContext());
+                FragmentHome.adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
+            }
+        });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stringName = name.getText().toString();
