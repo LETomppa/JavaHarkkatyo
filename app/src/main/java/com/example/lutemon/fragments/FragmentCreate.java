@@ -31,7 +31,6 @@ public class FragmentCreate extends Fragment {
     private String stringName;
     private Lutemon l;
 
-    private Storage storage;
 
 
     @Override
