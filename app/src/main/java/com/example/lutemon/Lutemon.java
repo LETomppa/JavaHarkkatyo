@@ -10,7 +10,7 @@ public class Lutemon {
     protected int maxHealth;
     protected int id;
     protected int image;
-    private int idCounter;
+    private static int idCounter = 0;
 
     public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth, int image) {
         this.name = name;
@@ -58,5 +58,17 @@ public class Lutemon {
 
     public int getId() {
         return id;
+    }
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
+
+    public void setDefence(int defence){
+        this.defence = defence;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(name);
     }
 }
