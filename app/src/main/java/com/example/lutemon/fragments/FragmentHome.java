@@ -26,6 +26,8 @@ public class FragmentHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        storage = Storage.getInstance();
+        adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
     }
 
     @Override
@@ -33,14 +35,22 @@ public class FragmentHome extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        setupUI(view);
+        return view;
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setupUI(getView());
+    }
+    private void setupUI(View view) {
+        adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
         storage = Storage.getInstance();
 
         recyclerView = view.findViewById(R.id.rvListItems);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
-        return view;
     }
-
 }

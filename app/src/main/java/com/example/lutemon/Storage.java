@@ -1,8 +1,11 @@
 package com.example.lutemon;
 
 
+import static com.example.lutemon.fragments.FragmentHome.adapter;
+
 import android.content.Context;
 
+import com.example.lutemon.fragments.FragmentHome;
 import com.example.lutemon.fragments.FragmentTrain;
 
 import java.io.FileNotFoundException;
@@ -39,8 +42,8 @@ public class Storage {
             i++;
         }
         lutemons.remove(i);
-
     }
+
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream userWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
@@ -72,7 +75,7 @@ public class Storage {
             lutemon.setIdCounter(number);
             number++;
         }
-
+        adapter.notifyDataSetChanged();
     }
 
 }

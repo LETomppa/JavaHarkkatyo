@@ -36,6 +36,7 @@ public class FragmentCreate extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        storage = Storage.getInstance();
     }
 
     @Override
@@ -97,7 +98,6 @@ public class FragmentCreate extends Fragment {
             @Override
             public void onClick(View view) {
                 Storage.getInstance().loadLutemons(getContext());
-                FragmentHome.adapter.notifyDataSetChanged();
                 Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
             }
         });
