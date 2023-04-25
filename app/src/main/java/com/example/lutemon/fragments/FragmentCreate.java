@@ -27,10 +27,10 @@ import com.example.lutemon.LutemonListAdapter;
 public class FragmentCreate extends Fragment {
 
     private EditText name;
+    private Storage storage;
     private String stringName;
     private Lutemon l;
 
-    private Storage storage;
 
 
     @Override
@@ -44,36 +44,60 @@ public class FragmentCreate extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create, container, false);
         name = view.findViewById(R.id.txtName);
-        Button addButton = view.findViewById(R.id.btnCreate);
+        Button btnAdd = view.findViewById(R.id.btnCreate);
+        Button btnSave = view.findViewById(R.id.btnSave);
+        Button btnLoad = view.findViewById(R.id.btnLoad);
         storage = Storage.getInstance();
         FragmentHome.adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
-        addButton.setOnClickListener(new View.OnClickListener() {
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                storage.saveLutemons(getContext());
+                Toast.makeText(getContext(), "Lutemonien tallennus onnistui!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                storage.loadLutemons(getContext());
+                FragmentHome.adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
+            }
+        });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 stringName = name.getText().toString();
-                RadioGroup rgColorType = view.findViewById(R.id.rgColors);
-                switch (rgColorType.getCheckedRadioButtonId()) {
-                    case R.id.rbWhite:
-                        l = new White(stringName);
-                        break;
-                    case R.id.rbGreen:
-                        l = new Green(stringName);
-                        break;
-                    case R.id.rbPink:
-                        l = new Pink(stringName);
-                        break;
-                    case R.id.rbOrange:
-                        l = new Orange(stringName);
-                        break;
-                    case R.id.rbBlack:
-                        l = new Black(stringName);
-                        break;
-                    default:
-                        Toast.makeText(getContext(), "Valitse väri", Toast.LENGTH_LONG).show();
+                if (stringName.isEmpty()) {
+                    Toast.makeText(getContext(), "Anna lutemonille nimi", Toast.LENGTH_LONG).show();
                 }
-                Storage.getInstance().addLutemon(l);
-                FragmentHome.adapter.notifyDataSetChanged();
-
+                else {
+                    RadioGroup rgColorType = view.findViewById(R.id.rgColors);
+                    switch (rgColorType.getCheckedRadioButtonId()) {
+                        case R.id.rbWhite:
+                            l = new White(stringName);
+                            break;
+                        case R.id.rbGreen:
+                            l = new Green(stringName);
+                            break;
+                        case R.id.rbPink:
+                            l = new Pink(stringName);
+                            break;
+                        case R.id.rbOrange:
+                            l = new Orange(stringName);
+                            break;
+                        case R.id.rbBlack:
+                            l = new Black(stringName);
+                            break;
+                        default:
+                            Toast.makeText(getContext(), "Valitse väri", Toast.LENGTH_LONG).show();
+                    }
+                    Storage.getInstance().addLutemon(l);
+                    FragmentHome.adapter.notifyDataSetChanged();
+                    Toast.makeText(getContext(), "Lutemon luotu!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

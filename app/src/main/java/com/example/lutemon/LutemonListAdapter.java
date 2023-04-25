@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lutemon.fragments.FragmentTrain;
+
 import java.util.ArrayList;
 
 public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
