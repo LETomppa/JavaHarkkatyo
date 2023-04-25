@@ -1,6 +1,294 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentFight"/>
+    tools:context=".fragments.FragmentFight">
+
+    <TextView
+        android:id="@+id/textSecondFighter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Valitse toinen taistelija"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageFighterOne"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/imageF1XP"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_xp"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterOne"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Def"
+        app:srcCompat="@drawable/image_xp" />
+
+    <TextView
+        android:id="@+id/textVIIVA4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textHEALTHF2"
+        app:layout_constraintTop_toTopOf="@+id/textHEALTHF2" />
+
+    <ImageView
+        android:id="@+id/imageFighterOne"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnferFOne"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageF2Def"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_defence"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterTwo"
+        app:layout_constraintTop_toBottomOf="@+id/imageF2Att"
+        app:srcCompat="@drawable/image_defence" />
+
+    <Spinner
+        android:id="@+id/spinnerFTwo"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSecondFighter" />
+
+    <ImageView
+        android:id="@+id/imageF1HP"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/image_health"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterOne"
+        app:layout_constraintTop_toBottomOf="@+id/spinnferFOne" />
+
+    <Spinner
+        android:id="@+id/spinnferFOne"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFirstFighter" />
+
+    <TextView
+        android:id="@+id/textDEFENCEF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="def"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF2Def"
+        app:layout_constraintTop_toTopOf="@+id/imageF2Def" />
+
+    <Button
+        android:id="@+id/btnFight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Taisteluun"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageFighterTwo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textATTACKF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dmg"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1Att"
+        app:layout_constraintTop_toTopOf="@+id/imageF1Att" />
+
+    <TextView
+        android:id="@+id/textFirstFighter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Valitse ensimmäinen taistelija"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageF2XP"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_xp"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterTwo"
+        app:layout_constraintTop_toBottomOf="@+id/imageF2Def"
+        app:srcCompat="@drawable/image_xp" />
+
+    <ImageView
+        android:id="@+id/imageFighterTwo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFTwo"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textMAXHEALTHF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textVIIVA3"
+        app:layout_constraintTop_toTopOf="@+id/textVIIVA3" />
+
+    <TextView
+        android:id="@+id/textMAXHEALTHF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textVIIVA4"
+        app:layout_constraintTop_toTopOf="@+id/textVIIVA4" />
+
+    <TextView
+        android:id="@+id/textATTACKF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dmg"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF2Att"
+        app:layout_constraintTop_toTopOf="@+id/imageF2Att" />
+
+    <TextView
+        android:id="@+id/textLVLF2"
+        android:layout_width="33dp"
+        android:layout_height="25dp"
+        android:text="LVL"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF2XP"
+        app:layout_constraintTop_toTopOf="@+id/imageF2XP" />
+
+    <TextView
+        android:id="@+id/textVIIVA3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textHEALTHF1"
+        app:layout_constraintTop_toTopOf="@+id/textHEALTHF1" />
+
+    <TextView
+        android:id="@+id/textHEALTHF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1HP"
+        app:layout_constraintTop_toTopOf="@+id/imageF1HP" />
+
+    <ImageView
+        android:id="@+id/imageF2HP"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/image_health"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterTwo"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFTwo" />
+
+    <ImageView
+        android:id="@+id/imageF1Def"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_defence"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterOne"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Att"
+        app:srcCompat="@drawable/image_defence" />
+
+    <TextView
+        android:id="@+id/textDEFENCEF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="def"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1Def"
+        app:layout_constraintTop_toTopOf="@+id/imageF1Def" />
+
+    <ImageView
+        android:id="@+id/imageF2Att"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_attack"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterTwo"
+        app:layout_constraintTop_toBottomOf="@+id/imageF2HP"
+        app:srcCompat="@drawable/image_attack" />
+
+    <TextView
+        android:id="@+id/textHEALTHF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF2HP"
+        app:layout_constraintTop_toTopOf="@+id/imageF2HP" />
+
+    <TextView
+        android:id="@+id/textLVLF1"
+        android:layout_width="33dp"
+        android:layout_height="25dp"
+        android:text="LVL"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1XP"
+        app:layout_constraintTop_toTopOf="@+id/imageF1XP" />
+
+    <ImageView
+        android:id="@+id/imageF1Att"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/image_attack"
+        app:layout_constraintStart_toEndOf="@+id/imageFighterOne"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1HP"
+        app:srcCompat="@drawable/image_attack" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
