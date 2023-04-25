@@ -24,6 +24,8 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
     private ImageButton imageButton;
     private ArrayList<Lutemon> lutemons;
     private Lutemon selectedLutemon;
+    private ArrayAdapter<Lutemon> adapter;
+    private static int clickCounter = 0;
 
 
     @Override
@@ -34,11 +36,22 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
         imageButton = view.findViewById(R.id.imageButton);
         lutemons = Storage.getInstance().getLutemons();
         // Create an ArrayAdapter to populate the spinner with Lutemon names
-        ArrayAdapter<Lutemon> adapter = new ArrayAdapter<>(getContext(),
+        adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_dropdown_item, lutemons);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickCounter++;
+                if (clickCounter == 40) {
+                    selectedLutemon.setAttack(selectedLutemon.getAttack()+1);
+                    FragmentHome.adapter.notifyDataSetChanged();
+                    clickCounter = 0;
 
+                }
+            }
+        });
         return view;
     }
     @Override
@@ -52,4 +65,5 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
     public void onNothingSelected(AdapterView<?> adapterView) {
         // Do nothing
     }
+
 }
