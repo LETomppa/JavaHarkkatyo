@@ -77,11 +77,23 @@ public class Lutemon implements Serializable {
         idCounter = number;
     }
 
-    public void setWins() {wins++;}
-    public void setLosses() {losses++;}
+    public void setWins() {
+        wins++;
+        experience = experience + 2;
+    }
+    public void setLosses() {losses++; experience = experience + 1;}
 
     public int getWins() {return wins;}
     public int getLosses() {return losses;}
+
+    public Boolean isAlive(){
+        if (health > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         return String.valueOf(name);

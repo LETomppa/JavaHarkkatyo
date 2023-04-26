@@ -6,6 +6,216 @@
     android:background="#FFF"
     tools:context=".FightActivity">
 
+    <ImageView
+        android:id="@+id/imageF1HP3"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_health"
+        app:layout_constraintStart_toEndOf="@+id/lutemon1_image"
+        app:layout_constraintTop_toTopOf="@+id/lutemon1_image" />
+
+    <TextView
+        android:id="@+id/battleHealthF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1HP3"
+        app:layout_constraintTop_toTopOf="@+id/imageF1HP3" />
+
+    <TextView
+        android:id="@+id/battletextLVLF1"
+        android:layout_width="33dp"
+        android:layout_height="25dp"
+        android:text="LVL"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1XP3"
+        app:layout_constraintTop_toTopOf="@+id/imageF1XP3" />
+
+    <TextView
+        android:id="@+id/battleAttackF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dmg"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1Att3"
+        app:layout_constraintTop_toTopOf="@+id/imageF1Att3" />
+
+    <TextView
+        android:id="@+id/battleDefenceF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="def"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/imageF1Def3"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1HP3" />
+
+    <ImageView
+        android:id="@+id/imageF1XP3"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_xp"
+        app:layout_constraintStart_toStartOf="@+id/imageF1Att3"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Att3"
+        app:srcCompat="@drawable/image_xp" />
+
+    <TextView
+        android:id="@+id/textMAXHEALTHF3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textVIIVA5"
+        app:layout_constraintTop_toTopOf="@+id/textVIIVA5" />
+
+    <TextView
+        android:id="@+id/textVIIVA5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textHEALTHF3"
+        app:layout_constraintTop_toTopOf="@+id/textHEALTHF3" />
+
+    <ImageView
+        android:id="@+id/imageF1Att3"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_attack"
+        app:layout_constraintStart_toEndOf="@+id/lutemon1_image"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Def3"
+        app:srcCompat="@drawable/image_attack" />
+
+    <ImageView
+        android:id="@+id/imageF1Def3"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_defence"
+        app:layout_constraintStart_toEndOf="@+id/lutemon1_image"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1HP3"
+        app:srcCompat="@drawable/image_defence" />
+
+    <TextView
+        android:id="@+id/battleAttackF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dmg"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageF1Att2"
+        app:layout_constraintTop_toTopOf="@+id/imageF1Att2" />
+
+    <TextView
+        android:id="@+id/battletextLVLF2"
+        android:layout_width="33dp"
+        android:layout_height="25dp"
+        android:text="LVL"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageF1XP2"
+        app:layout_constraintTop_toTopOf="@+id/imageF1XP2" />
+
+    <ImageView
+        android:id="@+id/imageF1Att2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_attack"
+        app:layout_constraintEnd_toStartOf="@+id/lutemon2_image"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1HP2"
+        app:srcCompat="@drawable/image_attack" />
+
+    <ImageView
+        android:id="@+id/imageF1HP2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_health"
+        app:layout_constraintEnd_toStartOf="@+id/lutemon2_image"
+        app:layout_constraintTop_toTopOf="@+id/lutemon2_image" />
+
+    <TextView
+        android:id="@+id/battleMAXHEALTHF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageF1HP2"
+        app:layout_constraintTop_toTopOf="@+id/imageF1HP2" />
+
+    <TextView
+        android:id="@+id/battleMAXHEALTHF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/textVIIVA6"
+        app:layout_constraintTop_toTopOf="@+id/textVIIVA6" />
+
+    <TextView
+        android:id="@+id/battleHEALTHF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/textVIIVA2"
+        app:layout_constraintTop_toTopOf="@+id/textVIIVA2" />
+
+    <TextView
+        android:id="@+id/battleDEFENCEF2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="def"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageF1Def2"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Att2" />
+
+    <ImageView
+        android:id="@+id/imageF1XP2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_xp"
+        app:layout_constraintEnd_toStartOf="@+id/lutemon2_image"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Def2"
+        app:srcCompat="@drawable/image_xp" />
+
+    <TextView
+        android:id="@+id/textVIIVA2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/battleMAXHEALTHF2"
+        app:layout_constraintTop_toTopOf="@+id/battleMAXHEALTHF2" />
+
+    <TextView
+        android:id="@+id/textVIIVA6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        app:layout_constraintStart_toEndOf="@+id/battleHealthF1"
+        app:layout_constraintTop_toTopOf="@+id/battleHealthF1" />
+
+    <ImageView
+        android:id="@+id/imageF1Def2"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/image_defence"
+        app:layout_constraintEnd_toStartOf="@+id/lutemon2_image"
+        app:layout_constraintTop_toBottomOf="@+id/imageF1Att2"
+        app:srcCompat="@drawable/image_defence" />
+
     <TextView
         android:id="@+id/lutemon1_name"
         android:layout_width="wrap_content"
@@ -37,8 +247,8 @@
 
     <ImageView
         android:id="@+id/lutemon1_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/lutemon1_name"
         app:layout_constraintStart_toStartOf="@+id/lutemon1_name"
@@ -46,11 +256,31 @@
 
     <ImageView
         android:id="@+id/lutemon2_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="@+id/lutemon2_name"
         app:layout_constraintTop_toBottomOf="@+id/lutemon2_name"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/battleButtonFight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="fightStart"
+        android:text="Taistele"
+        app:layout_constraintBottom_toTopOf="@+id/lutemon1_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lutemon2_image" />
+
+    <Button
+        android:id="@+id/buttonBackk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="switchBack"
+        android:text="Takaisin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

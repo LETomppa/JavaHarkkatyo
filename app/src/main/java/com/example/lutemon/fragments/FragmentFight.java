@@ -209,6 +209,8 @@ public class FragmentFight extends Fragment {
 
     public void switchToFight(View view) {
         Intent intent = new Intent(getActivity(), FightActivity.class);
+        intent.putExtra("selectedLutemon1", selectedLutemon);
+        intent.putExtra("selectedLutemon2", selectedLutemon2);
         startActivity(intent);
     }
 }
