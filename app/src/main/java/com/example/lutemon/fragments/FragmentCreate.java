@@ -27,7 +27,6 @@ import com.example.lutemon.LutemonListAdapter;
 public class FragmentCreate extends Fragment {
 
     private EditText name;
-    private Storage storage;
     private String stringName;
     private Lutemon l;
 
@@ -36,7 +35,7 @@ public class FragmentCreate extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        storage = Storage.getInstance();
+        Storage.getInstance();
     }
 
     @Override
@@ -48,8 +47,7 @@ public class FragmentCreate extends Fragment {
         Button btnAdd = view.findViewById(R.id.btnCreate);
         Button btnSave = view.findViewById(R.id.btnSave);
         Button btnLoad = view.findViewById(R.id.btnLoad);
-        storage = Storage.getInstance();
-        FragmentHome.adapter = new LutemonListAdapter(getActivity(), storage.getLutemons());
+        FragmentHome.adapter = new LutemonListAdapter(getActivity(), Storage.getInstance().getLutemons());
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override

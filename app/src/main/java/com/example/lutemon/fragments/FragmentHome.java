@@ -20,8 +20,6 @@ import java.util.ArrayList;
 
 public class FragmentHome extends Fragment {
 
-    private Storage storage;
-
     private RecyclerView recyclerView;
 
     public static LutemonListAdapter adapter;
@@ -32,7 +30,6 @@ public class FragmentHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        storage = Storage.getInstance();
         adapter = new LutemonListAdapter(getActivity(), Storage.getInstance().getLutemons());
     }
 
