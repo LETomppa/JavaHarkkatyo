@@ -125,6 +125,7 @@ public class FightActivity extends AppCompatActivity {
                     healthF1.setText("0");
                 }
                 lutemon.setHealth(lutemon.getMaxHealth());
+                lutemon1.setHealth(lutemon1.getMaxHealth());
                 expF1.setText(String.valueOf(lutemon.getExperience()));
             }
 
@@ -136,6 +137,8 @@ public class FightActivity extends AppCompatActivity {
                     healthF2.setText("0");
                 }
                 lutemon.setHealth(lutemon.getMaxHealth());
+                lutemon2.setHealth(lutemon2.getMaxHealth());
+
                 expF2.setText(String.valueOf(lutemon.getExperience()));
             }
 
