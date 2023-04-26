@@ -1,20 +1,19 @@
 package com.example.lutemon;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
-import com.example.lutemon.fragments.FragmentTrain;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
-
+    public String version = "1.0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("LUTEMON Fighter v" + version);
         TabLayout tabLayout = findViewById(R.id.tabArea);
         ViewPager2 fragmentArea = findViewById(R.id.fragmentArea);
         TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this);
