@@ -71,6 +71,7 @@ public class Lutemon implements Serializable {
     public void setDefence(int defence){
         this.defence = defence;
     }
+    public void setHealth(int health) {this.health = health;}
 
     public void setIdCounter(int number) {
         idCounter = number;

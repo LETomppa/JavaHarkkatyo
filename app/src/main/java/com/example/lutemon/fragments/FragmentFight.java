@@ -1,5 +1,6 @@
 package com.example.lutemon.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lutemon.FightActivity;
 import com.example.lutemon.Lutemon;
+import com.example.lutemon.MainActivity;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
 
@@ -194,10 +197,18 @@ public class FragmentFight extends Fragment {
                     if (selectedLutemon == selectedLutemon2) {
                         Toast.makeText(getContext(), "Valitse kaksi eri lutemonia", Toast.LENGTH_LONG).show();
                     }
+                    else {
+                        switchToFight(view);
+                    }
                 }
             });
 
 
         }
+    }
+
+    public void switchToFight(View view) {
+        Intent intent = new Intent(getActivity(), FightActivity.class);
+        startActivity(intent);
     }
 }
