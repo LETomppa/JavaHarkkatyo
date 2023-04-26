@@ -56,7 +56,7 @@ public class FragmentCreate extends Fragment {
             public void onClick(View v) {
                 stringName = name.getText().toString();
                 if (stringName.isEmpty()) {
-                    Toast.makeText(getContext(), "Anna lutemonille nimi", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Anna lutemonille nimi", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     RadioGroup rgColorType = view.findViewById(R.id.rgColors);
@@ -77,11 +77,11 @@ public class FragmentCreate extends Fragment {
                             l = new Black(stringName);
                             break;
                         default:
-                            Toast.makeText(getContext(), "Valitse väri", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "Valitse väri", Toast.LENGTH_SHORT).show();
                     }
                     Storage.getInstance().addLutemon(l);
                     FragmentHome.adapter.notifyDataSetChanged();
-                    Toast.makeText(getContext(), "Lutemon luotu!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Lutemon luotu!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -90,7 +90,7 @@ public class FragmentCreate extends Fragment {
             @Override
             public void onClick(View view) {
                 Storage.getInstance().saveLutemons(getContext());
-                Toast.makeText(getContext(), "Lutemonien tallennus onnistui!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Lutemonien tallennus onnistui!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,7 +98,7 @@ public class FragmentCreate extends Fragment {
             @Override
             public void onClick(View view) {
                 Storage.getInstance().loadLutemons(getContext());
-                Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Lutemonien lataus onnistui!", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

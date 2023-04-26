@@ -14,6 +14,9 @@ public class Lutemon implements Serializable {
     protected int image;
     private static int idCounter;
 
+    protected int wins;
+    protected int losses;
+
     public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth, int image) {
         this.name = name;
         this.color = color;
@@ -72,6 +75,12 @@ public class Lutemon implements Serializable {
     public void setIdCounter(int number) {
         idCounter = number;
     }
+
+    public void setWins() {wins++;}
+    public void setLosses() {losses++;}
+
+    public int getWins() {return wins;}
+    public int getLosses() {return losses;}
     @Override
     public String toString() {
         return String.valueOf(name);

@@ -1,6 +1,5 @@
 package com.example.lutemon.fragments;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -53,7 +52,7 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
         setupUI(getView());
     }
     private void setupUI(View view) {
-        spinner = view.findViewById(R.id.spinner);
+        spinner = view.findViewById(R.id.spinnerTrain);
         imageButton = view.findViewById(R.id.imageButton);
         lutemons = Storage.getInstance().getLutemons();
         TextView emptyText = view.findViewById(R.id.txtEmpty);
@@ -100,7 +99,7 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
                 public void onClick(View view) {
                     int selectedRadioButtonId = rgTrain.getCheckedRadioButtonId();
                     if (selectedRadioButtonId == View.NO_ID) {
-                        Toast.makeText(getContext(), "Valitse kumpaa statsia haluat treenata", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Valitse kumpaa statsia haluat treenata", Toast.LENGTH_SHORT).show();
                     }
                     else {clickCounter++;
                         if (clickCounter == 40) {

@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.lutemon.fragments.FragmentCreate;
 import com.example.lutemon.fragments.FragmentFight;
 import com.example.lutemon.fragments.FragmentHome;
+import com.example.lutemon.fragments.FragmentStats;
 import com.example.lutemon.fragments.FragmentTrain;
 
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class TabPagerAdapter extends FragmentStateAdapter{
                 return new FragmentTrain();
             case 3:
                 return new FragmentFight();
+            case 4:
+                return new FragmentStats();
             default:
                 return new FragmentHome();
         }
@@ -38,6 +41,6 @@ public class TabPagerAdapter extends FragmentStateAdapter{
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 5;
     }
 }
