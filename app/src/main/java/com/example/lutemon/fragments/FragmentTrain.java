@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,8 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
         ImageView imgSword = view.findViewById(R.id.imgSword);
         ImageView imgShield = view.findViewById(R.id.imgShield);
         RadioGroup rgTrain = view.findViewById(R.id.rgTrain);
+        TextView txtAddedAttack = view.findViewById(R.id.txtAddedAttack);
+        TextView txtAddedDefence = view.findViewById(R.id.txtAddedDefence);
         if (lutemons.isEmpty()) {
             emptyText.setVisibility(View.VISIBLE);
             spinner.setVisibility(View.GONE);
@@ -99,11 +102,52 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
                         if (clickCounter == 40) {
                             switch (rgTrain.getCheckedRadioButtonId()) {
                                 case R.id.rbAttack:
+                                    txtAddedAttack.setVisibility(View.VISIBLE);
                                     selectedLutemon.setAttack(selectedLutemon.getAttack() + 1);
+                                    txtAddedAttack.animate()
+                                            .alpha(1.0f) // smoothly appear
+                                            .setDuration(500) // 500 milliseconds
+                                            .withEndAction(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    txtAddedAttack.animate()
+                                                            .alpha(0.0f) // smoothly fade away
+                                                            .setDuration(500) // 100 milliseconds
+                                                            .withEndAction(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    txtAddedAttack.setVisibility(View.GONE);
+                                                                }
+                                                            })
+                                                            .start();
+                                                }
+                                            })
+                                            .start();
                                     break;
                                 case R.id.rbDefence:
+                                    txtAddedDefence.setVisibility(View.VISIBLE);
                                     selectedLutemon.setDefence(selectedLutemon.getDefence() + 1);
+                                    txtAddedDefence.animate()
+                                            .alpha(1.0f) // smoothly appear
+                                            .setDuration(500) // 500 milliseconds
+                                            .withEndAction(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    txtAddedDefence.animate()
+                                                            .alpha(0.0f) // smoothly fade away
+                                                            .setDuration(500) // 500 milliseconds
+                                                            .withEndAction(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    txtAddedDefence.setVisibility(View.GONE);
+                                                                }
+                                                            })
+                                                            .start();
+                                                }
+                                            })
+                                            .start();
                                     break;
+
                             }
                             FragmentHome.adapter.notifyDataSetChanged();
                             txtAttack.setText(String.valueOf(selectedLutemon.getAttack()));
