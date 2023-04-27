@@ -1,5 +1,6 @@
 package com.example.lutemon.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,24 +14,37 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Pie;
+import com.anychart.palettes.DistinctColors;
 import com.example.lutemon.Lutemon;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class FragmentStats extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    private Pie pie;
     private TextView txtWins;
     private TextView txtLosses;
     private ImageView imageLutemon;
     private ArrayList<Lutemon> lutemons;
 
+    private AnyChartView anyChartView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_stats, container, false);
+        View view = inflater.inflate(R.layout.fragment_stats, container, false);;
+        anyChartView = view.findViewById(R.id.chartView);
+        pie = AnyChart.pie();
+        anyChartView.setChart(pie);
         setupUI(view);
         return view;
     }
@@ -84,6 +98,20 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
         imageLutemon.setImageResource(selectedLutemon.getImage());
         txtWins.setText(String.valueOf(selectedLutemon.getWins()));
         txtLosses.setText(String.valueOf(selectedLutemon.getLosses()));
+
+        chart(selectedLutemon);
+    }
+
+    public void chart(Lutemon lutemon){
+        String[] colors = {"#8fce00", "#f44336",};
+        pie.palette(colors);
+
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new ValueDataEntry("Wins", lutemon.getWins()));
+        data.add(new ValueDataEntry("Losses", lutemon.getLosses()));
+        pie.data(data);
+
+
     }
 
     @Override
