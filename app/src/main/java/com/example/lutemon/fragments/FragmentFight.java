@@ -29,19 +29,19 @@ public class FragmentFight extends Fragment {
 
     private Lutemon selectedLutemon, selectedLutemon2;
 
-    private Button buttonFight;
+    private ImageView imageF1;
+    private ImageView imageF2;
 
-    private Spinner spinnerF1, spinnerF2;
-
-    private ArrayList<Lutemon> lutemons;
-
-    private ArrayAdapter<Lutemon> adapter;
-
-    private ImageView imageF1, imageF2, imageF1hp, imageF2hp, imageF1def, imageF2def,
-            imageF1att, imageF2att, imageF1xp, imageF2xp;
-
-    private TextView attF1, attF2, defF1, defF2, healthF1, healthF2, healthMaxF1,
-            healthMaxF2, expF1, expF2, textVIIVA4, textVIIVA3, textFighterselect, txtEmptyFight;
+    private TextView attF1;
+    private TextView attF2;
+    private TextView defF1;
+    private TextView defF2;
+    private TextView healthF1;
+    private TextView healthF2;
+    private TextView healthMaxF1;
+    private TextView healthMaxF2;
+    private TextView expF1;
+    private TextView expF2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,11 +59,11 @@ public class FragmentFight extends Fragment {
     }
 
     private void setupUI(View view){
-        lutemons = Storage.getInstance().getLutemons();
+        ArrayList<Lutemon> lutemons = Storage.getInstance().getLutemons();
 
-        spinnerF1 = view.findViewById(R.id.spinnferFOne);
-        spinnerF2 = view.findViewById(R.id.spinnerFTwo);
-        buttonFight = view.findViewById(R.id.btnFight);
+        Spinner spinnerF1 = view.findViewById(R.id.spinnferFOne);
+        Spinner spinnerF2 = view.findViewById(R.id.spinnerFTwo);
+        Button buttonFight = view.findViewById(R.id.btnFight);
         imageF1 = view.findViewById(R.id.imageFighterOne);
         imageF2 = view.findViewById(R.id.imageFighterTwo);
         attF1 = view.findViewById(R.id.textATTACKF1);
@@ -76,80 +76,80 @@ public class FragmentFight extends Fragment {
         healthMaxF2 = view.findViewById(R.id.textMAXHEALTHF2);
         expF1 = view.findViewById(R.id.textLVLF1);
         expF2 = view.findViewById(R.id.textLVLF2);
-        imageF1hp = view.findViewById(R.id.imageF1HP);
-        imageF2hp = view.findViewById(R.id.imageF2HP);
-        imageF1def = view.findViewById(R.id.imageF1Def);
-        imageF2def = view.findViewById(R.id.imageF2Def);
-        imageF1att = view.findViewById(R.id.imageF1Att);
-        imageF2att = view.findViewById(R.id.imageF2Att);
-        imageF1xp = view.findViewById(R.id.imageF1XP);
-        imageF2xp = view.findViewById(R.id.imageF2XP);
-        textVIIVA4 = view.findViewById(R.id.textVIIVA4);
-        textVIIVA3 = view.findViewById(R.id.textVIIVA3);
-        textFighterselect = view.findViewById(R.id.textFighterSelect);
-        txtEmptyFight = view.findViewById(R.id.txtEmptyFight);
+        ImageView imageF1hp = view.findViewById(R.id.imageF1HP);
+        ImageView imageF2hp = view.findViewById(R.id.imageF2HP);
+        ImageView imageF1def = view.findViewById(R.id.imageF1Def);
+        ImageView imageF2def = view.findViewById(R.id.imageF2Def);
+        ImageView imageF1att = view.findViewById(R.id.imageF1Att);
+        ImageView imageF2att = view.findViewById(R.id.imageF2Att);
+        ImageView imageF1xp = view.findViewById(R.id.imageF1XP);
+        ImageView imageF2xp = view.findViewById(R.id.imageF2XP);
+        TextView textVIIVA4 = view.findViewById(R.id.textVIIVA4);
+        TextView textVIIVA3 = view.findViewById(R.id.textVIIVA3);
+        TextView textFighterselect = view.findViewById(R.id.textFighterSelect);
+        TextView txtEmptyFight = view.findViewById(R.id.txtEmptyFight);
 
-        adapter = new ArrayAdapter<>(getContext(),
+        ArrayAdapter<Lutemon> adapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_spinner_dropdown_item, lutemons);
         spinnerF1.setAdapter(adapter);
         spinnerF2.setAdapter(adapter);
         if (lutemons.isEmpty()) {
-            spinnerF1.setVisibility(view.GONE);
-            spinnerF2.setVisibility(view.GONE);
-            buttonFight.setVisibility(view.GONE);
-            imageF1.setVisibility(view.GONE);
-            imageF2.setVisibility(view.GONE);
-            attF1.setVisibility(view.GONE);
-            attF2.setVisibility(view.GONE);
-            defF1.setVisibility(view.GONE);
-            defF2.setVisibility(view.GONE);
-            healthF1.setVisibility(view.GONE);
-            healthF2.setVisibility(view.GONE);
-            healthMaxF1.setVisibility(view.GONE);
-            healthMaxF2.setVisibility(view.GONE);
-            expF1.setVisibility(view.GONE);
-            expF2.setVisibility(view.GONE);
-            imageF1hp.setVisibility(view.GONE);
-            imageF2hp.setVisibility(view.GONE);
-            imageF1def.setVisibility(view.GONE);
-            imageF2def.setVisibility(view.GONE);
-            imageF1att.setVisibility(view.GONE);
-            imageF2att.setVisibility(view.GONE);
-            imageF1xp.setVisibility(view.GONE);
-            imageF2xp.setVisibility(view.GONE);
-            textVIIVA4.setVisibility(view.GONE);
-            textVIIVA3.setVisibility(view.GONE);
-            textFighterselect.setVisibility(view.GONE);
-            txtEmptyFight.setVisibility(view.VISIBLE);
+            spinnerF1.setVisibility(View.GONE);
+            spinnerF2.setVisibility(View.GONE);
+            buttonFight.setVisibility(View.GONE);
+            imageF1.setVisibility(View.GONE);
+            imageF2.setVisibility(View.GONE);
+            attF1.setVisibility(View.GONE);
+            attF2.setVisibility(View.GONE);
+            defF1.setVisibility(View.GONE);
+            defF2.setVisibility(View.GONE);
+            healthF1.setVisibility(View.GONE);
+            healthF2.setVisibility(View.GONE);
+            healthMaxF1.setVisibility(View.GONE);
+            healthMaxF2.setVisibility(View.GONE);
+            expF1.setVisibility(View.GONE);
+            expF2.setVisibility(View.GONE);
+            imageF1hp.setVisibility(View.GONE);
+            imageF2hp.setVisibility(View.GONE);
+            imageF1def.setVisibility(View.GONE);
+            imageF2def.setVisibility(View.GONE);
+            imageF1att.setVisibility(View.GONE);
+            imageF2att.setVisibility(View.GONE);
+            imageF1xp.setVisibility(View.GONE);
+            imageF2xp.setVisibility(View.GONE);
+            textVIIVA4.setVisibility(View.GONE);
+            textVIIVA3.setVisibility(View.GONE);
+            textFighterselect.setVisibility(View.GONE);
+            txtEmptyFight.setVisibility(View.VISIBLE);
         }
         else {
-            spinnerF1.setVisibility(view.VISIBLE);
-            spinnerF2.setVisibility(view.VISIBLE);
-            buttonFight.setVisibility(view.VISIBLE);
-            imageF1.setVisibility(view.VISIBLE);
-            imageF2.setVisibility(view.VISIBLE);
-            attF1.setVisibility(view.VISIBLE);
-            attF2.setVisibility(view.VISIBLE);
-            defF1.setVisibility(view.VISIBLE);
-            defF2.setVisibility(view.VISIBLE);
-            healthF1.setVisibility(view.VISIBLE);
-            healthF2.setVisibility(view.VISIBLE);
-            healthMaxF1.setVisibility(view.VISIBLE);
-            healthMaxF2.setVisibility(view.VISIBLE);
-            expF1.setVisibility(view.VISIBLE);
-            expF2.setVisibility(view.VISIBLE);
-            imageF1hp.setVisibility(view.VISIBLE);
-            imageF2hp.setVisibility(view.VISIBLE);
-            imageF1def.setVisibility(view.VISIBLE);
-            imageF2def.setVisibility(view.VISIBLE);
-            imageF1att.setVisibility(view.VISIBLE);
-            imageF2att.setVisibility(view.VISIBLE);
-            imageF1xp.setVisibility(view.VISIBLE);
-            imageF2xp.setVisibility(view.VISIBLE);
-            textVIIVA4.setVisibility(view.VISIBLE);
-            textVIIVA3.setVisibility(view.VISIBLE);
-            textFighterselect.setVisibility(view.VISIBLE);
-            txtEmptyFight.setVisibility(view.GONE);
+            spinnerF1.setVisibility(View.VISIBLE);
+            spinnerF2.setVisibility(View.VISIBLE);
+            buttonFight.setVisibility(View.VISIBLE);
+            imageF1.setVisibility(View.VISIBLE);
+            imageF2.setVisibility(View.VISIBLE);
+            attF1.setVisibility(View.VISIBLE);
+            attF2.setVisibility(View.VISIBLE);
+            defF1.setVisibility(View.VISIBLE);
+            defF2.setVisibility(View.VISIBLE);
+            healthF1.setVisibility(View.VISIBLE);
+            healthF2.setVisibility(View.VISIBLE);
+            healthMaxF1.setVisibility(View.VISIBLE);
+            healthMaxF2.setVisibility(View.VISIBLE);
+            expF1.setVisibility(View.VISIBLE);
+            expF2.setVisibility(View.VISIBLE);
+            imageF1hp.setVisibility(View.VISIBLE);
+            imageF2hp.setVisibility(View.VISIBLE);
+            imageF1def.setVisibility(View.VISIBLE);
+            imageF2def.setVisibility(View.VISIBLE);
+            imageF1att.setVisibility(View.VISIBLE);
+            imageF2att.setVisibility(View.VISIBLE);
+            imageF1xp.setVisibility(View.VISIBLE);
+            imageF2xp.setVisibility(View.VISIBLE);
+            textVIIVA4.setVisibility(View.VISIBLE);
+            textVIIVA3.setVisibility(View.VISIBLE);
+            textFighterselect.setVisibility(View.VISIBLE);
+            txtEmptyFight.setVisibility(View.GONE);
             AdapterView.OnItemSelectedListener listener1 = new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

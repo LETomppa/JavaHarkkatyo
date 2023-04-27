@@ -1,5 +1,6 @@
 package com.example.lutemon.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,11 +21,8 @@ import java.util.ArrayList;
 
 public class FragmentHome extends Fragment {
 
-    private RecyclerView recyclerView;
-
+    @SuppressLint("StaticFieldLeak")
     public static LutemonListAdapter adapter;
-    private ArrayList<Lutemon> lutemons;
-    private TextView txtEmptyHome;
 
 
     @Override
@@ -48,17 +46,17 @@ public class FragmentHome extends Fragment {
         setupUI(getView());
     }
     private void setupUI(View view) {
-        lutemons = Storage.getInstance().getLutemons();
+        ArrayList<Lutemon> lutemons = Storage.getInstance().getLutemons();
         adapter = new LutemonListAdapter(getActivity(), Storage.getInstance().getLutemons());
-        recyclerView = view.findViewById(R.id.rvListItems);
-        txtEmptyHome = view.findViewById(R.id.txtEmptyHome);
+        RecyclerView recyclerView = view.findViewById(R.id.rvListItems);
+        TextView txtEmptyHome = view.findViewById(R.id.txtEmptyHome);
         if (lutemons.isEmpty()) {
-            recyclerView.setVisibility(view.GONE);
-            txtEmptyHome.setVisibility(view.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            txtEmptyHome.setVisibility(View.VISIBLE);
         }
         else {
-            recyclerView.setVisibility(view.VISIBLE);
-            txtEmptyHome.setVisibility(view.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+            txtEmptyHome.setVisibility(View.GONE);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
         }

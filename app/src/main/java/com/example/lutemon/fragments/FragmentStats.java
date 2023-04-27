@@ -22,12 +22,10 @@ import java.util.ArrayList;
 
 public class FragmentStats extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private TextView txtWins, txtLosses, txtInfo, txtEmptyStats;
-    private ImageView imageLutemon, imageWins, imageLosses;
-    private Spinner spinner;
+    private TextView txtWins;
+    private TextView txtLosses;
+    private ImageView imageLutemon;
     private ArrayList<Lutemon> lutemons;
-    private Lutemon selectedLutemon;
-    private ArrayAdapter<Lutemon> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,35 +42,35 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
     }
 
     private void setupUI(View view) {
-        spinner = view.findViewById(R.id.spinnerStats);
+        Spinner spinner = view.findViewById(R.id.spinnerStats);
         imageLutemon = view.findViewById(R.id.imageStatsLutemon);
         txtWins = view.findViewById(R.id.txtWins);
         txtLosses = view.findViewById(R.id.txtLosses);
-        imageWins = view.findViewById(R.id.imageWins);
-        imageLosses = view.findViewById(R.id.imageLosses);
-        txtInfo = view.findViewById(R.id.txtChooseStats);
-        txtEmptyStats = view.findViewById(R.id.txtEmptyStats);
+        ImageView imageWins = view.findViewById(R.id.imageWins);
+        ImageView imageLosses = view.findViewById(R.id.imageLosses);
+        TextView txtInfo = view.findViewById(R.id.txtChooseStats);
+        TextView txtEmptyStats = view.findViewById(R.id.txtEmptyStats);
         lutemons = Storage.getInstance().getLutemons();
         if (lutemons.isEmpty()) {
-            spinner.setVisibility(view.GONE);
-            imageLutemon.setVisibility(view.GONE);
-            txtWins.setVisibility(view.GONE);
-            txtLosses.setVisibility(view.GONE);
-            imageWins.setVisibility(view.GONE);
-            imageLosses.setVisibility(view.GONE);
-            txtInfo.setVisibility(view.GONE);
-            txtEmptyStats.setVisibility(view.VISIBLE);
+            spinner.setVisibility(View.GONE);
+            imageLutemon.setVisibility(View.GONE);
+            txtWins.setVisibility(View.GONE);
+            txtLosses.setVisibility(View.GONE);
+            imageWins.setVisibility(View.GONE);
+            imageLosses.setVisibility(View.GONE);
+            txtInfo.setVisibility(View.GONE);
+            txtEmptyStats.setVisibility(View.VISIBLE);
         }
         else{
-            spinner.setVisibility(view.VISIBLE);
-            imageLutemon.setVisibility(view.VISIBLE);
-            txtWins.setVisibility(view.VISIBLE);
-            txtLosses.setVisibility(view.VISIBLE);
-            imageWins.setVisibility(view.VISIBLE);
-            imageLosses.setVisibility(view.VISIBLE);
-            txtInfo.setVisibility(view.VISIBLE);
-            txtEmptyStats.setVisibility(view.GONE);
-            adapter = new ArrayAdapter<>(getContext(),
+            spinner.setVisibility(View.VISIBLE);
+            imageLutemon.setVisibility(View.VISIBLE);
+            txtWins.setVisibility(View.VISIBLE);
+            txtLosses.setVisibility(View.VISIBLE);
+            imageWins.setVisibility(View.VISIBLE);
+            imageLosses.setVisibility(View.VISIBLE);
+            txtInfo.setVisibility(View.VISIBLE);
+            txtEmptyStats.setVisibility(View.GONE);
+            ArrayAdapter<Lutemon> adapter = new ArrayAdapter<>(getContext(),
                     android.R.layout.simple_spinner_dropdown_item, lutemons);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(this);
@@ -82,7 +80,7 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         // Get the selected Lutemon object and display its image
-        selectedLutemon = lutemons.get(i);
+        Lutemon selectedLutemon = lutemons.get(i);
         imageLutemon.setImageResource(selectedLutemon.getImage());
         txtWins.setText(String.valueOf(selectedLutemon.getWins()));
         txtLosses.setText(String.valueOf(selectedLutemon.getLosses()));

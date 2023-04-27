@@ -23,20 +23,14 @@ import com.example.lutemon.Storage;
 import java.util.ArrayList;
 
 public class FragmentTrain extends Fragment implements AdapterView.OnItemSelectedListener {
-    private Spinner spinner;
     private ImageButton imageButton;
     private TextView txtAttack;
     private TextView txtDefence;
     private TextView txtClicksLeft;
-    private TextView txtTrain;
-    private TextView txtInfo;
-    private ImageView imgSword;
-    private ImageView imgShield;
     private ArrayList<Lutemon> lutemons;
     private Lutemon selectedLutemon;
-    private ArrayAdapter<Lutemon> adapter;
     private static int clickCounter = 0;
-    private static int clicksLeft = 40;
+    private static final int clicksLeft = 40;
 
 
     @Override
@@ -52,17 +46,17 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
         setupUI(getView());
     }
     private void setupUI(View view) {
-        spinner = view.findViewById(R.id.spinnerTrain);
+        Spinner spinner = view.findViewById(R.id.spinnerTrain);
         imageButton = view.findViewById(R.id.imageButton);
         lutemons = Storage.getInstance().getLutemons();
         TextView emptyText = view.findViewById(R.id.txtEmpty);
         txtAttack = view.findViewById(R.id.txtAttack);
         txtDefence = view.findViewById(R.id.txtDefence);
         txtClicksLeft = view.findViewById(R.id.txtPresses);
-        txtTrain = view.findViewById(R.id.txtTrain);
-        txtInfo = view.findViewById(R.id.txtInfo);
-        imgSword = view.findViewById(R.id.imgSword);
-        imgShield = view.findViewById(R.id.imgShield);
+        TextView txtTrain = view.findViewById(R.id.txtTrain);
+        TextView txtInfo = view.findViewById(R.id.txtInfo);
+        ImageView imgSword = view.findViewById(R.id.imgSword);
+        ImageView imgShield = view.findViewById(R.id.imgShield);
         RadioGroup rgTrain = view.findViewById(R.id.rgTrain);
         if (lutemons.isEmpty()) {
             emptyText.setVisibility(View.VISIBLE);
@@ -78,7 +72,7 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
             rgTrain.setVisibility(View.GONE);
         } else {
             // Create an ArrayAdapter to populate the spinner with Lutemon names
-            adapter = new ArrayAdapter<>(getContext(),
+            ArrayAdapter<Lutemon> adapter = new ArrayAdapter<>(getContext(),
                     android.R.layout.simple_spinner_dropdown_item, lutemons);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(this);
