@@ -69,11 +69,11 @@ public class FightActivity extends AppCompatActivity {
 
         if (lutemon1 != null && lutemon2 != null) {
             if (lutemon1.getExperience() > lutemon2.experience) {
-                lutemon1.setAttack(lutemon1.getAttack() + 1);
+                lutemon1.setAttack(lutemon1.getAttack() + 2);
                 Toast.makeText(this, lutemon1.getName() + ":n kokemus on korkeampi! hänen hyökkäys on parempi!", Toast.LENGTH_LONG).show();
             }
             if (lutemon2.getExperience() > lutemon1.experience) {
-                lutemon2.setAttack(lutemon2.getAttack() + 1);
+                lutemon2.setAttack(lutemon2.getAttack() + 2);
                 Toast.makeText(this, lutemon2.getName() + ":n kokemus on korkeampi! hänen hyökkäys on parempi!", Toast.LENGTH_LONG).show();
 
             }
@@ -271,8 +271,6 @@ public class FightActivity extends AppCompatActivity {
                     lutemon.setLosses();
                     healthF2.setText("0");
                 }
-                lutemon.setHealth(lutemon.getMaxHealth());
-                lutemon2.setHealth(lutemon2.getMaxHealth());
 
                 expF2.setText(String.valueOf(lutemon.getExperience()));
             }

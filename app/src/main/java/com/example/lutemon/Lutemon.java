@@ -80,8 +80,15 @@ public class Lutemon implements Serializable {
     public void setWins() {
         wins++;
         experience = experience + 2;
+        maxHealth = maxHealth + experience;
+        health = maxHealth;
     }
-    public void setLosses() {losses++; experience = experience + 1;}
+    public void setLosses() {
+        losses++;
+        experience = experience + 1;
+        maxHealth = maxHealth + experience;
+        health = maxHealth;
+    }
 
     public int getWins() {return wins;}
     public int getLosses() {return losses;}
