@@ -17,6 +17,8 @@ public class EasterEggActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easter_egg);
+        txtCounter = findViewById(R.id.txtSilitetty);
+        txtCounter.setText(String.valueOf(petCounter));
         if (!Storage.getInstance().getEasterEggBoolean()) {
             Lutemon Pikseli = new SecretHedgehog();
             Storage.getInstance().addLutemon(Pikseli);
@@ -27,7 +29,6 @@ public class EasterEggActivity extends AppCompatActivity {
     public void petPikseli(View view) {
         imgPikseli = findViewById(R.id.imgPikseli);
         petCounter++;
-        txtCounter = findViewById(R.id.txtSilitetty);
         txtCounter.setText(String.valueOf(petCounter));
         if (imgPikseli.getRotationX() != 0) {
             imgPikseli.setRotationX(0);
