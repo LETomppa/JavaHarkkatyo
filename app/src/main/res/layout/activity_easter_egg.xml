@@ -81,4 +81,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSilitetty" />
+
+    <TextView
+        android:id="@+id/textInstructionForPikseli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Silitä minua 25 kertaa!"
+        android:textColor="#46008C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEasterEggBack" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

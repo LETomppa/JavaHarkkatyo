@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EasterEggActivity extends AppCompatActivity {
     private static int petCounter;
@@ -19,11 +20,6 @@ public class EasterEggActivity extends AppCompatActivity {
         setContentView(R.layout.activity_easter_egg);
         txtCounter = findViewById(R.id.txtSilitetty);
         txtCounter.setText(String.valueOf(petCounter));
-        if (!Storage.getInstance().getEasterEggBoolean()) {
-            Lutemon Pikseli = new SecretHedgehog();
-            Storage.getInstance().addLutemon(Pikseli);
-            Storage.getInstance().setEasterEggBoolean();
-        }
     }
 
     public void petPikseli(View view) {
@@ -34,6 +30,15 @@ public class EasterEggActivity extends AppCompatActivity {
             imgPikseli.setRotationX(0);
         }
         imgPikseli.animate().rotationXBy(360);
+
+        if (petCounter == 25){
+            if (!Storage.getInstance().getEasterEggBoolean()) {
+                Lutemon Pikseli = new SecretHedgehog();
+                Storage.getInstance().addLutemon(Pikseli);
+                Storage.getInstance().setEasterEggBoolean();
+            }
+            Toast.makeText(this, "Löysit Pikselin!", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
