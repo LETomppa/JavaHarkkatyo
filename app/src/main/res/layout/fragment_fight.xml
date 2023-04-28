@@ -178,7 +178,7 @@
 
     <TextView
         android:id="@+id/textLVLF2"
-        android:layout_width="33dp"
+        android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:text="LVL"
         android:textColor="#000000"
@@ -260,7 +260,7 @@
 
     <TextView
         android:id="@+id/textLVLF1"
-        android:layout_width="33dp"
+        android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:text="LVL"
         android:textColor="#000000"

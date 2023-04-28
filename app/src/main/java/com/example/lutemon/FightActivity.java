@@ -29,7 +29,7 @@ public class FightActivity extends AppCompatActivity {
     private TextView expF2;
 
     private TextView txtResult;
-    private ImageView imgCritical;
+    private ImageView imgCritical, easterEgg;
     private TextView dmgL1, dmgL2;
     private boolean isLutemon1Attacking = true;
 
@@ -40,6 +40,7 @@ public class FightActivity extends AppCompatActivity {
 
         fightButton = findViewById(R.id.battleButtonFight);
         backButton = findViewById(R.id.buttonBack);
+        easterEgg = findViewById(R.id.EasterEgg);
         txtResult = findViewById(R.id.txtResult);
 
         TextView attF1 = findViewById(R.id.battleAttackF1);
@@ -277,6 +278,12 @@ public class FightActivity extends AppCompatActivity {
 
         }
         backButton.setVisibility(View.VISIBLE);
+        easterEgg.setVisibility(View.VISIBLE);
+    }
+
+    public void easterEgg(View view) {
+        Intent intent = new Intent(this, EasterEggActivity.class);
+        startActivity(intent);
     }
 
 

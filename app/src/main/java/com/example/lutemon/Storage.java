@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Storage {
     protected String name;
-    private FragmentTrain fragmentTrain;
+    private static boolean EasterEggBoolean = false;
     ArrayList<Lutemon> lutemons = new ArrayList<>();
     private static Storage storage = null;
 
@@ -76,6 +76,14 @@ public class Storage {
             number++;
         }
         adapter.notifyDataSetChanged();
+    }
+
+    public void setEasterEggBoolean() {
+        EasterEggBoolean = true;
+    }
+
+    public boolean getEasterEggBoolean() {
+        return EasterEggBoolean;
     }
 
 }
