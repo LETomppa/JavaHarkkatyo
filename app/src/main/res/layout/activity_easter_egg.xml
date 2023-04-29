@@ -25,26 +25,13 @@
         android:id="@+id/txtEasterEgg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-black"
         android:text="LÖYSIT PIKSELIN!"
         android:textColor="#FF0033"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtEasterEggInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEasterEggInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Voit nyt käyttää pikseliä taisteluissa!"
-        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/imgPikseli"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -87,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Silitä minua 25 kertaa!"
-        android:textColor="#46008C"
+        android:textColor="#8150B2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

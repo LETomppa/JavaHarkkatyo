@@ -33,7 +33,7 @@ public class Storage {
 
     public ArrayList<Lutemon> getLutemons() {return lutemons; }
 
-    public void removeLutemon(int id) {
+    public void removeLutemon(int id) { // removes a lutemon from the ArrayList
         int i = 0;
         for (Lutemon l : lutemons){
             if (l.getId() == (id)) {
@@ -84,6 +84,6 @@ public class Storage {
 
     public boolean getEasterEggBoolean() {
         return EasterEggBoolean;
-    }
+    } // returns the boolean to determine if the hedgehog has been found or not
 
 }

@@ -42,11 +42,11 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
         return view;
     }
     @Override
-    public void onResume() {
+    public void onResume() { // refreshes the list every time the tab has been resumed
         super.onResume();
         setupUI(getView());
     }
-    private void setupUI(View view) {
+    private void setupUI(View view) { // Set up the UI components
         Spinner spinner = view.findViewById(R.id.spinnerTrain);
         imageButton = view.findViewById(R.id.imageButton);
         lutemons = Storage.getInstance().getLutemons();
@@ -61,7 +61,7 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
         RadioGroup rgTrain = view.findViewById(R.id.rgTrain);
         TextView txtAddedAttack = view.findViewById(R.id.txtAddedAttack);
         TextView txtAddedDefence = view.findViewById(R.id.txtAddedDefence);
-        if (lutemons.isEmpty()) {
+        if (lutemons.isEmpty()) { // if theres no lutemons, the fragment is empty and suggests to create some
             emptyText.setVisibility(View.VISIBLE);
             spinner.setVisibility(View.GONE);
             imageButton.setVisibility(View.GONE);
@@ -73,7 +73,7 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
             imgSword.setVisibility(View.GONE);
             imgShield.setVisibility(View.GONE);
             rgTrain.setVisibility(View.GONE);
-        } else {
+        } else { // displays the fragment when lutemons have been created
             // Create an ArrayAdapter to populate the spinner with Lutemon names
             ArrayAdapter<Lutemon> adapter = new ArrayAdapter<>(getContext(),
                     android.R.layout.simple_spinner_dropdown_item, lutemons);
@@ -90,17 +90,19 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
             imgSword.setVisibility(View.VISIBLE);
             imgShield.setVisibility(View.VISIBLE);
             rgTrain.setVisibility(View.VISIBLE);
+            // Update the click counter and show the result in the UI
             txtClicksLeft.setText(String.valueOf(clicksLeft-clickCounter));
             imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int selectedRadioButtonId = rgTrain.getCheckedRadioButtonId();
-                    if (selectedRadioButtonId == View.NO_ID) {
+                    if (selectedRadioButtonId == View.NO_ID) { // makes the user select a stat they want to train
                         Toast.makeText(getContext(), "Valitse kumpaa statsia haluat treenata", Toast.LENGTH_SHORT).show();
                     }
                     else {clickCounter++;
                         if (clickCounter == 40) {
                             switch (rgTrain.getCheckedRadioButtonId()) {
+                                // Does the animation for attaack
                                 case R.id.rbAttack:
                                     txtAddedAttack.setVisibility(View.VISIBLE);
                                     selectedLutemon.setAttack(selectedLutemon.getAttack() + 1);
@@ -125,6 +127,7 @@ public class FragmentTrain extends Fragment implements AdapterView.OnItemSelecte
                                             .start();
                                     break;
                                 case R.id.rbDefence:
+                                    // Does the animation for attaack
                                     txtAddedDefence.setVisibility(View.VISIBLE);
                                     selectedLutemon.setDefence(selectedLutemon.getDefence() + 1);
                                     txtAddedDefence.animate()

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class StartActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity { // this is the first screen of the app aka the starting screen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

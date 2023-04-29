@@ -247,7 +247,7 @@
         android:id="@+id/battleButtonFight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="fightStart"
+        android:onClick="fight"
         android:text="Taistele"
         app:layout_constraintBottom_toTopOf="@+id/lutemon1_image"
         app:layout_constraintEnd_toEndOf="parent"

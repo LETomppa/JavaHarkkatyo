@@ -53,12 +53,12 @@ public class FragmentFight extends Fragment {
     }
 
     @Override
-    public void onResume(){
+    public void onResume(){ // refreshes the list every time the tab has been resumed
         super.onResume();
         setupUI(getView());
     }
 
-    private void setupUI(View view){
+    private void setupUI(View view){ // Set up the UI components
         ArrayList<Lutemon> lutemons = Storage.getInstance().getLutemons();
 
         Spinner spinnerF1 = view.findViewById(R.id.spinnferFOne);
@@ -93,7 +93,7 @@ public class FragmentFight extends Fragment {
                 android.R.layout.simple_spinner_dropdown_item, lutemons);
         spinnerF1.setAdapter(adapter);
         spinnerF2.setAdapter(adapter);
-        if (lutemons.isEmpty()) {
+        if (lutemons.isEmpty()) { // if theres no lutemons, the fragment is empty and suggests to create some
             spinnerF1.setVisibility(View.GONE);
             spinnerF2.setVisibility(View.GONE);
             buttonFight.setVisibility(View.GONE);
@@ -122,7 +122,7 @@ public class FragmentFight extends Fragment {
             textFighterselect.setVisibility(View.GONE);
             txtEmptyFight.setVisibility(View.VISIBLE);
         }
-        else {
+        else { // displays the fragment when lutemons have been created
             spinnerF1.setVisibility(View.VISIBLE);
             spinnerF2.setVisibility(View.VISIBLE);
             buttonFight.setVisibility(View.VISIBLE);
@@ -211,6 +211,6 @@ public class FragmentFight extends Fragment {
         Intent intent = new Intent(getActivity(), FightActivity.class);
         intent.putExtra("selectedLutemon1", selectedLutemon);
         intent.putExtra("selectedLutemon2", selectedLutemon2);
-        startActivity(intent);
+        startActivity(intent); // switches to fight activity
     }
 }

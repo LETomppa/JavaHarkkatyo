@@ -41,20 +41,20 @@ public class FragmentHome extends Fragment {
     }
 
     @Override
-    public void onResume() {
+    public void onResume() { // refreshes the list every time the tab has been resumed
         super.onResume();
         setupUI(getView());
     }
-    private void setupUI(View view) {
+    private void setupUI(View view) { // Set up the UI components
         ArrayList<Lutemon> lutemons = Storage.getInstance().getLutemons();
         adapter = new LutemonListAdapter(getActivity(), Storage.getInstance().getLutemons());
         RecyclerView recyclerView = view.findViewById(R.id.rvListItems);
         TextView txtEmptyHome = view.findViewById(R.id.txtEmptyHome);
-        if (lutemons.isEmpty()) {
+        if (lutemons.isEmpty()) { // if theres no lutemons, the fragment is empty and suggests to create some
             recyclerView.setVisibility(View.GONE);
             txtEmptyHome.setVisibility(View.VISIBLE);
         }
-        else {
+        else { // displays the fragment when lutemons have been created
             recyclerView.setVisibility(View.VISIBLE);
             txtEmptyHome.setVisibility(View.GONE);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

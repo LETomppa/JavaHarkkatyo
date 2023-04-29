@@ -14,12 +14,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
-import com.anychart.palettes.DistinctColors;
+import com.anychart.AnyChart; //COMMENT OUT IF DOESNT WORK
+import com.anychart.AnyChartView; //COMMENT OUT IF DOESNT WORK
+import com.anychart.chart.common.dataentry.DataEntry; //COMMENT OUT IF DOESNT WORK
+import com.anychart.chart.common.dataentry.ValueDataEntry; //COMMENT OUT IF DOESNT WORK
+import com.anychart.charts.Pie; //COMMENT OUT IF DOESNT WORK
+import com.anychart.palettes.DistinctColors; //COMMENT OUT IF DOESNT WORK
 import com.example.lutemon.Lutemon;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
@@ -28,9 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+//This fragment shows the stats of lutemons
 public class FragmentStats extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private Pie pie;
+    private Pie pie; //COMMENT OUT IF DOESNT WORK
     private TextView txtWins;
     private TextView txtLosses;
     private ImageView imageLutemon;
@@ -38,24 +39,26 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
 
     private AnyChartView anyChartView;
 
+
+    // IF YOU DONT HAVE THE LATEST VERSION OF ANDROID STUDIO, COMMENT OUT THE ANYCHART STUFF MARKED WITH A COMMENT LINES WITH //COMMENT OUT IF DOESNT WORK
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_stats, container, false);;
-        anyChartView = view.findViewById(R.id.chartView);
-        pie = AnyChart.pie();
-        anyChartView.setChart(pie);
+        anyChartView = view.findViewById(R.id.chartView); //COMMENT OUT IF DOESNT WORK
+        pie = AnyChart.pie(); //COMMENT OUT IF DOESNT WORK
+        anyChartView.setChart(pie); //COMMENT OUT IF DOESNT WORK
         setupUI(view);
         return view;
     }
 
     @Override
-    public void onResume() {
+    public void onResume() { // refreshes the list every time the tab has been resumed
         super.onResume();
         setupUI(getView());
     }
 
-    private void setupUI(View view) {
+    private void setupUI(View view) { // Set up the UI components
         Spinner spinner = view.findViewById(R.id.spinnerStats);
         imageLutemon = view.findViewById(R.id.imageStatsLutemon);
         txtWins = view.findViewById(R.id.txtWins);
@@ -65,7 +68,7 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
         TextView txtInfo = view.findViewById(R.id.txtChooseStats);
         TextView txtEmptyStats = view.findViewById(R.id.txtEmptyStats);
         lutemons = Storage.getInstance().getLutemons();
-        if (lutemons.isEmpty()) {
+        if (lutemons.isEmpty()) { // if theres no lutemons, the fragment is empty and suggests to create some
             spinner.setVisibility(View.GONE);
             imageLutemon.setVisibility(View.GONE);
             txtWins.setVisibility(View.GONE);
@@ -75,7 +78,7 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
             txtInfo.setVisibility(View.GONE);
             txtEmptyStats.setVisibility(View.VISIBLE);
         }
-        else{
+        else{ // displays the fragment when lutemons have been created
             spinner.setVisibility(View.VISIBLE);
             imageLutemon.setVisibility(View.VISIBLE);
             txtWins.setVisibility(View.VISIBLE);
@@ -102,7 +105,7 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
         chart(selectedLutemon);
     }
 
-    public void chart(Lutemon lutemon){
+    public void chart(Lutemon lutemon){ //COMMENT THIS FUNCTION OUT IF DOESNT WORK. This adds a chart to the stats
         String[] colors = {"#8fce00", "#f44336",};
         pie.palette(colors);
 

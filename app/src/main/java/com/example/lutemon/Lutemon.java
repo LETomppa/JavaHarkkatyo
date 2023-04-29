@@ -104,5 +104,5 @@ public class Lutemon implements Serializable {
     @Override
     public String toString() {
         return String.valueOf(name);
-    }
+    } // this gives the dropdown menu the name of the lutemon to select from
 }

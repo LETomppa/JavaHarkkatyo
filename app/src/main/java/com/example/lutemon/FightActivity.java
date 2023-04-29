@@ -20,17 +20,10 @@ public class FightActivity extends AppCompatActivity {
     private Lutemon lutemon1;
     private Lutemon lutemon2;
     private ImageView imgLutemon1, imgLutemon2;
-
     private Button fightButton, backButton;
-
-    private TextView healthF1;
-    private TextView healthF2;
-    private TextView expF1;
-    private TextView expF2;
-
-    private TextView txtResult;
+    private TextView healthF1, healthF2, expF1, expF2;
+    private TextView txtResult, dmgL1, dmgL2;
     private ImageView imgCritical, easterEgg;
-    private TextView dmgL1, dmgL2;
     private boolean isLutemon1Attacking = true;
 
     @Override
@@ -38,10 +31,15 @@ public class FightActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fight);
 
+
+        // Initialize buttons, imageViews, and textViews
         fightButton = findViewById(R.id.battleButtonFight);
         backButton = findViewById(R.id.buttonBack);
         easterEgg = findViewById(R.id.EasterEgg);
         txtResult = findViewById(R.id.txtResult);
+        dmgL1 = findViewById(R.id.dmgL1);
+        dmgL2 = findViewById(R.id.dmgL2);
+        imgCritical = findViewById(R.id.imgCritical);
 
         TextView attF1 = findViewById(R.id.battleAttackF1);
         TextView attF2 = findViewById(R.id.battleAttackF2);
@@ -59,15 +57,11 @@ public class FightActivity extends AppCompatActivity {
         imgLutemon1 = findViewById(R.id.lutemon1_image);
         imgLutemon2 = findViewById(R.id.lutemon2_image);
 
-        imgCritical = findViewById(R.id.imgCritical);
-        dmgL1 = findViewById(R.id.dmgL1);
-        dmgL2 = findViewById(R.id.dmgL2);
-
-
+        // Retrieve lutemon objects from the previous activity
         lutemon1 = (Lutemon) getIntent().getSerializableExtra("selectedLutemon1");
         lutemon2 = (Lutemon) getIntent().getSerializableExtra("selectedLutemon2");
 
-
+        // Update the UI to display lutemon1 and lutemon2's stats and images
         if (lutemon1 != null && lutemon2 != null) {
             if (lutemon1.getExperience() > lutemon2.experience) {
                 lutemon1.setAttack(lutemon1.getAttack() + 2);
@@ -94,28 +88,34 @@ public class FightActivity extends AppCompatActivity {
             expF2.setText(String.valueOf(lutemon2.getExperience()));
         }
     }
+
+    // goes back to the main activity
     public void switchBack(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
 
-    public void fightStart(View view) throws InterruptedException {
+    public void fight(View view) throws InterruptedException {
+        // Get the current positions of the lutemons
         final float F1PosX = imgLutemon1.getX();
         final float F1PosY = imgLutemon1.getY();
         final float F2PosX = imgLutemon2.getX();
         final float F2PosY = imgLutemon2.getY();
 
+        // Initialize variables for damage, health and defence values
         int dmg = 0;
         int hp;
         int def;
         Lutemon attacker;
         Lutemon defender;
 
+        // Hide the fight button and show the initial health values
         fightButton.setVisibility(View.GONE);
         healthF1.setText(String.valueOf(lutemon1.getMaxHealth()));
         healthF2.setText(String.valueOf(lutemon2.getMaxHealth()));
 
+        // Determine the attacker and defender lutemons
         if (isLutemon1Attacking) {
             attacker = lutemon1;
             defender = lutemon2;
@@ -151,6 +151,7 @@ public class FightActivity extends AppCompatActivity {
                     500);
         }
 
+        // Calculate the damage and check for critical hit
         if (defender.isAlive()) {
             def = defender.getDefence();
             hp = defender.getHealth();
@@ -163,7 +164,7 @@ public class FightActivity extends AppCompatActivity {
             if (randomNumber == 7) {
                 dmg += 2;
                 Toast.makeText(this, "CRITICAL STRIKE! (dmg + 2)", Toast.LENGTH_SHORT).show();
-                if (isLutemon1Attacking) {
+                if (isLutemon1Attacking) { // add crit image to correct position
                     imgCritical.setX(F2PosX);
                     imgCritical.setY(F2PosY);
                     imgCritical.bringToFront();
@@ -176,7 +177,7 @@ public class FightActivity extends AppCompatActivity {
                         }
                     }, 1000); // 1000 milliseconds = 1 second
                 }
-                if (!isLutemon1Attacking) {
+                if (!isLutemon1Attacking) { // add crit image to correct position
                     imgCritical.setX(F1PosX);
                     imgCritical.setY(F1PosY);
                     imgCritical.bringToFront();
@@ -191,9 +192,10 @@ public class FightActivity extends AppCompatActivity {
                 }
             }
 
-
+            // Apply defence and update the damage value
             dmg = dmg - def;
 
+            // This will make it so that you cant give -damage
             if (dmg < 0) {
                 dmg = 0;
             }
@@ -242,10 +244,10 @@ public class FightActivity extends AppCompatActivity {
     }
 
 
-    public void fightEnd() {
+    public void fightEnd() { // this is called when the fight has ended
         ArrayList<Lutemon> lutemons = Storage.getInstance().getLutemons();
 
-
+        // determining the winner and assigning correct values for the lutemons
         for (Lutemon lutemon : lutemons) {
             if (lutemon.getId() == lutemon1.getId()) {
                 if (lutemon1.isAlive()) {
@@ -283,7 +285,7 @@ public class FightActivity extends AppCompatActivity {
 
     public void easterEgg(View view) {
         Intent intent = new Intent(this, EasterEggActivity.class);
-        startActivity(intent);
+        startActivity(intent); // starts the easter egg activity
     }
 
 
