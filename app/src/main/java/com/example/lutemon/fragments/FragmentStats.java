@@ -27,6 +27,29 @@ import com.example.lutemon.Storage;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+                                READ ME IMPORTANT:
+    PROJECT HAS IMPLEMENTED ANYCHART. IT NEEDS NEWEST VERSION OF ANDROID STUDIO TO WORK.
+    IF DOES NOT WORK. TRY COMMENTING LINES OF CODE BELOW AS INSTRUCTED.
+    ALSO GO TO FRAGMENT_STATS.XML AND COMMENT THE CODE FROM THE TOP OF THE FILE AS SHOWN:
+
+        <!--    <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtLosses"
+                app:layout_constraintTop_toTopOf="@+id/txtWins">
+
+                <com.anychart.AnyChartView
+                    android:id="@+id/chartView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>    -->
+
+ */
 
 //This fragment shows the stats of lutemons
 public class FragmentStats extends Fragment implements AdapterView.OnItemSelectedListener {

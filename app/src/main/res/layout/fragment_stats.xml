@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FragmentStats">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--IF DOES NOT WORK COMMENT OUT-->
+
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,6 +23,8 @@
             tools:layout_editor_absoluteY="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--THE STUFF BETWEEN THESE COMMENTS-->
 
     <TextView
         android:id="@+id/txtChooseStats"
