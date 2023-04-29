@@ -100,6 +100,7 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
             imageLosses.setVisibility(View.GONE);
             txtInfo.setVisibility(View.GONE);
             txtEmptyStats.setVisibility(View.VISIBLE);
+            anyChartView.setVisibility(View.GONE);
         }
         else{ // displays the fragment when lutemons have been created
             spinner.setVisibility(View.VISIBLE);
@@ -110,6 +111,7 @@ public class FragmentStats extends Fragment implements AdapterView.OnItemSelecte
             imageLosses.setVisibility(View.VISIBLE);
             txtInfo.setVisibility(View.VISIBLE);
             txtEmptyStats.setVisibility(View.GONE);
+            anyChartView.setVisibility(View.VISIBLE);
             ArrayAdapter<Lutemon> adapter = new ArrayAdapter<>(getContext(),
                     android.R.layout.simple_spinner_dropdown_item, lutemons);
             spinner.setAdapter(adapter);
